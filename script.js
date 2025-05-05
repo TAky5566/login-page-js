@@ -15,12 +15,14 @@
     let password3 = document.getElementById("Password");
     let submit2 = document.getElementById("LoginAccount");
     /* eye elements */
-    let see1 = document.querySelector(".see1");
-    let see2 = document.querySelector(".see2");
-    let see3 = document.querySelector(".see3");
+    let see1 = password3;
+    let see2 = password1;
+    let see3 = password2;
     let eye1 = document.getElementById("eye1");
     let eye2 = document.getElementById("eye2");
     let eye3 = document.getElementById("eye3");
+
+console.log(see1,see2,see3);
 
     /* 
     Regular expression for validating email addresses.
