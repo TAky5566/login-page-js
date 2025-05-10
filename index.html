@@ -15,68 +15,71 @@
         <div class="login active">
             <div class="login-form">
                 <h2>Sign in</h2>
-                <form > 
+                <div class="social-login">
+                    <a href="#" class="social-button " ><i class="fab fa-facebook-f">  </i> </a>
+                    <a href="#" class="social-button " ><i class="fab fa-google"    >  </i> </a>
+                    <a href="#" class="social-button " ><i class="fab fa-twitter"   >  </i> </a>
+                    <a href="#" class="social-button " ><i class="fab fa-github"    > </i>  </a>
+                    <a href="#" class="social-button " ><i class="fab fa-linkedin-in"> </i> </a>
+                </div>
+                <p>or use your email password</p>
+                <form method="post" > 
                     <div class="input-group">
-                        <input type="email" placeholder="UserName" id="UserName" name="UserName" required>
-                        <label for="UserName">UserName</label>
+                        <input type="email" placeholder=" " id="UserName" name="UserName" required>
+                        <label for="UserName">Email</label>
                     </div>
                     <div class="input-group">
-                        <input type="password" class="see1"  minlength="8" maxlength="32" placeholder="Password" id="Password" name="Password" required>
+                        <input type="password" class="see1"  minlength="8" maxlength="32" placeholder=" " id="Password" name="Password" required>
                         <label for="Password">Password</label>
                         <i class="fa-regular fa-eye" id="eye1" ></i>
                     </div>
+                    <a href="#">Forget Your Password?</a>
                     <button type="submit" id="LoginAccount">Login</button>
                 </form>
-                <h3>Or log In with</h3>
-                <div class="social-login">
-                    <a href="#" class="social-button "><i class="fab fa-facebook-f"></i> </a>
-                    <a href="#" class="social-button "><i class="fab fa-google"></i>       </a>
-                    <a href="#" class="social-button "><i class="fab fa-twitter"></i>     </a>
-                    <a href="#" class="social-button "><i class="fab fa-github"></i>        </a>
-                    <a href="#" class="social-button "><i class="fab fa-linkedin-in"></i> </a>
-                </div>
+
             </div>
         </div>
         <div class="signup">
             <div class="signup-form" >
-                <h2>Sign Up</h2>
-                <form> 
+                <h2>Create Account</h2>
+                <div class="social-login ">
+                    <a href="#" class="social-button " ><i class="fab fa-facebook-f">  </i> </a>
+                    <a href="#" class="social-button " ><i class="fab fa-google"    >  </i> </a>
+                    <a href="#" class="social-button " ><i class="fab fa-twitter"   >  </i> </a>
+                    <a href="#" class="social-button " ><i class="fab fa-github"    > </i>  </a>
+                    <a href="#" class="social-button " ><i class="fab fa-linkedin-in"> </i> </a>
+                </div>
+                <p>or use your email for registeration</p>
+                <form method="post"> 
                     <div class="input-group">
-                        <input type="email" placeholder="Email" id="signUpEmail" name="signUpEmail" required>
+                        <input type="email" placeholder=" " id="signUpEmail" name="signUpEmail" required>
                         <label for="signUpEmail">Email</label>
                     </div>
                     <div class="input-group">
-                        <input type="password" class="see2"  minlength="8" maxlength="32" placeholder="password" id="signUpPassword" name="signUpPassword" required>
+                        <input type="password" class="see2"  minlength="8" maxlength="32" placeholder=" " id="signUpPassword" name="signUpPassword" required>
                         <label for="signUpPassword">Password</label>
                         <i class="fa-regular fa-eye" id="eye2"></i>
                     </div>
                     <div class="input-group">
-                        <input type="password" class="see3"  minlength="8" maxlength="32" placeholder="confirmPassword" id="confirmPassword" name="confirmPassword" required>
+                        <input type="password" class="see3"  minlength="8" maxlength="32" placeholder=" " id="confirmPassword" name="confirmPassword" required>
                         <label for="confirmPassword">Confirm Password</label>
                         <i class="fa-regular fa-eye" id="eye3"></i>
                     </div>
                     <button type="submit" id="SignAccount">Sign Up</button>
                 </form>
-                <h3>Or Sign Up with</h3>
-                <div class="social-login ">
-                    <a href="#" class="social-button "><i class="fab fa-facebook-f"></i> </a>
-                    <a href="#" class="social-button "><i class="fab fa-google"></i>       </a>
-                    <a href="#" class="social-button "><i class="fab fa-twitter"></i>     </a>
-                    <a href="#" class="social-button "><i class="fab fa-github"></i>        </a>
-                    <a href="#" class="social-button "><i class="fab fa-linkedin-in"></i> </a>
-                </div>
             </div>
         </div>
     </div>
     <div class="layer">
         <div class="layer-content" >
-            <h2>Welcome Back!</h2>
-            <p>To keep connected with us please log in with your personal info</p>
+            <h2>Hello, Friend!</h2>
+            <p>Enter your personal details and start journey with us</p>
             <button id="signinPage" >Sign Up</button>
         </div>
         <div class="layer-content inactive">
-            <h2>Hello, Friend!</h2>
-            <p>Enter your personal details and start journey with us</p>
+            <h2>Welcome Back!</h2>
+            <p>To keep connected with us please log in with your personal info</p>
+            
             <button id="signupPage">Sign In</button>
         </div>
     </div>

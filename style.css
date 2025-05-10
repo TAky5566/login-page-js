@@ -1,13 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 /* general setups*/
+:root{
+    --white-color:#F5F5F5;
+    --black-color:#1A1A1A;
+    --main-color :#0072FF;
+    --secondary-color:#004E92;
+    --second-backcolor:#1e6b83;
+}
+
 *{
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
 body{
     height: 100vh;
-    background: linear-gradient(to right, #1e6b83, #0072ff);
+    background: linear-gradient(to right, var(--second-backcolor), var(--main-color));
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,42 +30,24 @@ button{
     padding: 7px 40px;
     border: none;
     border-radius: 5px;
-    background-color: #0072ff;
-    color: #fff;
     font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-button:hover{
-    background-color: #0056b3;
-}
-
-button[type="submit"]{
-   margin: 25px auto 0;
-   display: block;
+    border: 2px solid var(--white-color);
 }
 
 h3{
     font-size: 1.4rem;
     margin-bottom: 5px;
-    color: #f5f5f5;
+    color: var(--white-color);
 }
 input::placeholder{
     color: transparent;
 }
-
-p{
-    line-height: 1.5;
-    font-size: 16px;
-    padding: 0 10px;
-    margin-bottom: 5px;
-}
-
 .inactive{
     display: none;
-    }
-
+}
 /*************************/
 .container{
     width: 100%;
@@ -64,19 +56,16 @@ p{
     position: relative;
     border-radius: 10px;
     overflow: hidden;
-    color : #f5f5f5;
+    color : var(--white-color);
     background-color: rgba(255, 255, 255, 0.15); 
-    backdrop-filter: blur(10px); 
     border: 2px solid rgba(255, 255, 255, 0.2); 
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-
-
 }
 
 .form-container{
     display: flex;
     width: 100%;
-    div{
+    &>div{
         width:100%
     }
 }
@@ -91,72 +80,72 @@ p{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    flex-basis: 50%;
-    padding: 25px;
+    padding: 40px;
     position: relative;
+    p{
+        font-size: 12px;
+    }
 }
 
 .login{
-    animation: fadeout-left 0.7s ease-in-out forwards;
+    -moz-animation: fadeout-left 0.7s ease-in-out forwards;
+      -o-animation: fadeout-left 0.7s ease-in-out forwards ;
+         animation: fadeout-left 0.7s ease-in-out forwards;
     opacity: 1;
     transform: translateX(0);
 } 
 
-.login.active{
-    animation: fadeIn-left 0.7s ease-in-out forwards;
-    opacity: 0;
-    transform: translateX(-50px);
-}
- .signup{
-    animation: fadeout-right 0.7s ease-in-out forwards;
+.signup{
+    -moz-animation: fadeout-right 0.7s ease-in-out forwards;
+      -o-animation: fadeout-right 0.7s ease-in-out forwards;
+         animation: fadeout-right 0.7s ease-in-out forwards;
     opacity: 1;
     transform: translateX(0);
 }
-
-.signup.active{
-    animation: fadeIn-right 0.7s ease-in-out forwards;
-    opacity: 0;
-    transform: translateX(50px);
-}
-
-
 .container form{
     width: 100%;
-    margin: 10px 0;
+    margin-bottom: 10px;
     position: relative;
     .input-group{
         position: relative;
         margin-top: 20px;
     }
-}
-
-
- 
+    a{
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        color: var(--white-color);
+        margin: 15px 50px 10px;
+    }
+} 
 .input-group input{
     width: 100%;
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #f5f5f5;
+    background-color: var(--white-color);
     font-size: 1rem;
-    color: #333;
+    color: var(--black-color);
     outline: none;
     position: relative;
-    
 }
 .input-group input:focus{
     box-shadow: 0 0 5px 2px rgba(0, 114, 255, 0.5);   
 }
-
 .input-group label{
     position: absolute;
     top: 50%;
     left: 10px;
-    transform: translateY(-47%);
     font-size: 1rem;
-    color: #1a1a1a;
+    color: var(--black-color);
     font-weight: bold;
-    transition: all 0.3s ease;
+    -moz-transform:  translateY(-47%);
+     -ms-transform:  translateY(-47%);
+      -o-transform:  translateY(-47%);
+         transform:  translateY(-47%);
+    -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+         transition: all 0.3s ease;
 }
 
 .input-group input:focus + label,
@@ -164,7 +153,7 @@ p{
     top: -10px;
     left: 5px;
     font-size: 0.8rem;
-    color: #f5f5f5;
+    color: var(--white-color);
 }
 
 .input-group:has(input[type="email"]):before{
@@ -172,14 +161,17 @@ p{
     font-family: "Font Awesome 6 Free";
     font-weight: 900; 
     font-size: 16px;
-    color: #0072ff;
     position: absolute;
-    width: 10px;
-    height: 10px;
     top: 50%;
     right: 15px;
-    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
     z-index: 4;
+    color: var(--main-color);
+    -moz-transform:  translateY(-50%);
+     -ms-transform:  translateY(-50%);
+      -o-transform:  translateY(-50%);
+         transform:  translateY(-50%);
 }
 
 
@@ -187,31 +179,140 @@ p{
     position: absolute;
     top: 54%;
     right: 8px;
-    transform: translateY(-50%);
-    z-index: 4;
+    color:var(--main-color);
     background-color: transparent;
     border: none;
+    z-index: 4;
     cursor: pointer;
-    z-index: 10;
-    color:#0072ff;
+    -moz-transform:  translateY(-50%);
+     -ms-transform:  translateY(-50%);
+      -o-transform:  translateY(-50%);
+         transform:  translateY(-50%);
 }
 
+button[type="submit"]{
+    display: block;
+    margin: 25px auto 0;
+    background-color: var(--white-color);
+    color: var(--black-color);
+ 
+ }
+ button[type="submit"]:hover{
+     background-color: transparent;
+     color: var(--white-color);
+ }
 
+ /* movinng layer */ 
 .container .layer{
-    background:  #004e92;
-    flex-basis: 50%;
-    border-radius: 100px 0 0 100px ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     position: absolute;
     width: 50%;
     height: 100%;
     right: 0;
     top: 0;
-    transition: 0.7s;
+    padding: 0 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border-radius: 100px 0 0 100px ;
+    background:  var(--secondary-color);
+
+    -moz-transition: 0.7s;
+      -o-transition: 0.7s;
+         transition: 0.7s;
+
+    button{
+        background-color: transparent;
+        color: var(--white-color);
+        &:hover{
+            background-color: var(--white-color);
+            color: var(--black-color);
+        }
+    }
 } 
+
+
+.layer  p{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin: 20px 0;
+}
+
+.container .layer .layer-content{
+    text-align: center;
+    color:var(--white-color);    
+}
+
+.social-login{
+display: flex;
+justify-content: center;
+margin: 15px 0;
+gap:10px;
+    a{  
+        display: block;
+        text-decoration: none;
+        font-size: 1rem;
+        color: var(--white-color);
+        border: 1px solid var(--white-color);
+        border-radius: 7px;
+        -moz-transition:0.3s ease;
+          -o-transition:0.3s ease;
+             transition:0.3s ease;
+        
+        i{
+            width: 35px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white-color);
+
+        }
+        &:hover {
+            background-color: var(--secondary-color);
+        }
+    }
+}
+
+/*
+erroe message appear when try to submit invalid form 
+get msg from validation in js
+*/
+.error-message{
+    position: absolute;
+    right: 0px;
+    top: -30px;
+    width: 120%;
+    color: var(--white-color);
+    background-color: var(--black-color);
+    font-size: 14px;
+    padding: 2px 4px;
+    border-radius: 5px;
+    width: fit-content ;
+    z-index: 5;
+}
+.error-message:before{
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 5px;
+    margin-left: -5px;
+    border-width: 11px;
+    border-style: solid;
+    border-color: var(--black-color) transparent transparent transparent;
+}   
+/* essential properties for animations*/
+.login.active{
+    animation: fadeIn-left 0.7s ease-in-out forwards;
+    opacity: 0;
+    transform: translateX(-50px);
+}
+.signup.active{
+    animation: fadeIn-right 0.7s ease-in-out forwards;
+    opacity: 0;
+    transform: translateX(50px);
+}
 
 .container:has(.login.active) .layer:first-child{
     right:0;
@@ -222,61 +323,14 @@ p{
     border-radius: 0 100px 100px 0 ;
  }
 
-.container .layer .layer-content{
-    text-align: center;
-    color:#f5f5f5;
-}
+.layer .layer-content:first-of-type{
+    animation: fadeIn-right 0.7s ease-in-out forwards;
+ }
 
-.social-login{
-display: flex;
-justify-content: center;
-gap:10px;
-    a{  
-        display: block;
-        
-        text-decoration: none;
-        font-size: 1rem;
-        color: #f5f5f5;
-        padding: 0px 10px;
-        border: 1px solid #f5f5f5;
-        transition: 0.3s ease;
-        border-radius: 7px;
-        &:hover{
-            color: #0072ff;
-        }
-        i{
-            
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    }
-}
-
-
-.error-message{
-    color: #ffffff;
-    font-size: 14px;
-    position: absolute;
-    background-color: #1a1a1a;
-    z-index: 5;
-    padding: 0 2px;
-    border-radius: 5px;
-    width: fit-content !important;
-    right: 0px;
-    top: -30px;
-}
-.error-message:before{
-    content: '';
-    position: absolute;
-    top: 100%;
-    right: 5px;
-    margin-left: -5px;
-    border-width: 11px;
-    border-style: solid;
-    border-color: #1a1a1a transparent transparent transparent;
-}   
+ .layer .layer-content:last-of-type{
+    animation: fadeIn-left 0.7s ease-in-out forwards;
+ }
+ 
 
 @keyframes fadeIn-left {
     0% {
@@ -319,3 +373,4 @@ gap:10px;
     }
 }
 
+/******************************/

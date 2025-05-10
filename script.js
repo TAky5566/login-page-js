@@ -3,8 +3,8 @@
     let signup = document.getElementById("signupPage");
     let con1  =document.querySelector(".form-container .login");
     let con2  =document.querySelector(".form-container .signup"); 
-    let x = document.querySelector(".layer .layer-content");
-    let y = document.querySelector(".layer .layer-content.inactive");
+    let layer1 = document.querySelector(".layer .layer-content");
+    let layer2 = document.querySelector(".layer .layer-content.inactive");
     /* validation elements for sign new account*/
     let submit = document.getElementById("SignAccount");
     let password1 = document.getElementById("signUpPassword");
@@ -22,10 +22,9 @@
     let eye2 = document.getElementById("eye2");
     let eye3 = document.getElementById("eye3");
 
-console.log(see1,see2,see3);
 
     /* 
-    Regular expression for validating email addresses.
+    Regular ex.pression for validating email addresses.
     This pattern checks for a valid format of :
     - an email address
     - including the presence of an '@' symbol
@@ -52,7 +51,7 @@ console.log(see1,see2,see3);
             emailx.parentNode.insertBefore(errorMessage, emailx.nextElementSibling.nextSibling);
             setTimeout(() => {
                 errorMessage.remove();
-            }, timeout = 3000);
+            }, 3000);
             
             if(event)event.preventDefault();
             return;
@@ -69,7 +68,7 @@ console.log(see1,see2,see3);
             const errorMessage = document.createElement("div");
             errorMessage.className = "error-message";
             if(password1.value.length < 8) {
-                errorMessage.textContent = "Password must be at least 8 characters long.";
+                errorMessage.textContent = "length must be at least 8 characters";
             }
             else {
                 errorMessage.textContent = "Passwords do not match.";
@@ -90,7 +89,7 @@ console.log(see1,see2,see3);
     /* event listeners  for validation while inputing*/
     /*  validation  for sign new account*/
     email.addEventListener("input", function () {
-        emailvalidation();
+         emailvalidation();
     });
     password1.addEventListener("input", function () {
         passwordValidation();
@@ -137,7 +136,7 @@ console.log(see1,see2,see3);
             password3.style.border = "2px solid red";
             const errorMessage = document.createElement("div");
             errorMessage.className = "error-message";
-            errorMessage.textContent = "Password must be at least 8 characters long.";
+            errorMessage.textContent = "length must be at least 8 characters";
             password3.parentNode.insertBefore(errorMessage, password3.nextElementSibling.nextSibling);
             setTimeout(() => {
                 errorMessage.remove();
@@ -159,13 +158,13 @@ console.log(see1,see2,see3);
     signin.addEventListener("click", function(){
         con1.classList.remove("active");
         con2.classList.add("active");
-        x.classList.add("inactive");
-        y.classList.remove("inactive");
+        layer1.classList.add("inactive");
+        layer2.classList.remove("inactive");
     });
     
     signup.addEventListener("click", function(){
         con2.classList.remove("active");
         con1.classList.add("active");
-        y.classList.add("inactive");
-        x.classList.remove("inactive");
+        layer2.classList.add("inactive");
+        layer1.classList.remove("inactive");
     });
