@@ -23,7 +23,7 @@
                     <a href="#" class="social-button " ><i class="fab fa-linkedin-in"> </i> </a>
                 </div>
                 <p>or use your email password</p>
-                <form method="post" > 
+                <form> 
                     <div class="input-group">
                         <input type="email" placeholder=" " id="UserName" name="UserName" required>
                         <label for="UserName">Email</label>
@@ -50,23 +50,52 @@
                     <a href="#" class="social-button " ><i class="fab fa-linkedin-in"> </i> </a>
                 </div>
                 <p>or use your email for registeration</p>
-                <form method="post"> 
-                    <div class="input-group">
-                        <input type="email" placeholder=" " id="signUpEmail" name="signUpEmail" required>
-                        <label for="signUpEmail">Email</label>
+                <form>
+                    <!-- الخطوة 1: البيانات الشخصية -->
+                    <div id="step1">
+                        <div class="input-group">
+                            <input type="text" placeholder=" " id="fullName" name="fullName" required>
+                            <label for="fullName">Full Name</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="date" placeholder=" " id="birthDate" name="birthDate" min="14" max="100" required>
+                            <label for="birthDate">birthdate</label>
+                        </div>
+                        <div class="input-group">
+                            <div class="choose1">
+                                <input type="radio" value="male" id="male" name="gender" required>
+                                <label for="male">male</label>
+                            </div>
+                            <div class="choose2">
+                                <input type="radio" value="male" id="female" name="gender" required>
+                                <label for="female">female</label>
+                            </div>
+                        </div>
+                        <button type="button" id="nextStep">Next</button>
                     </div>
-                    <div class="input-group">
-                        <input type="password" class="see2"  minlength="8" maxlength="32" placeholder=" " id="signUpPassword" name="signUpPassword" required>
-                        <label for="signUpPassword">Password</label>
-                        <i class="fa-regular fa-eye" id="eye2"></i>
+                
+                    <!-- الخطوة 2: بيانات الحساب -->
+                    <div id="step2" class="inactive">
+                        <div class="input-group">
+                            <input type="email" placeholder=" " id="signUpEmail" name="signUpEmail" required>
+                            <label for="signUpEmail">Email</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" class="see2" minlength="8" maxlength="32" placeholder=" " id="signUpPassword" name="signUpPassword" required>
+                            <label for="signUpPassword">Password</label>
+                            <i class="fa-regular fa-eye" id="eye2"></i>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" class="see3" minlength="8" maxlength="32" placeholder=" " id="confirmPassword" name="confirmPassword" required>
+                            <label for="confirmPassword">Confirm Password</label>
+                            <i class="fa-regular fa-eye" id="eye3"></i>
+                        </div>
+                        <button type="button" id="prevStep">Back</button>
+                        <button type="submit" id="SignAccount">Sign Up</button>
                     </div>
-                    <div class="input-group">
-                        <input type="password" class="see3"  minlength="8" maxlength="32" placeholder=" " id="confirmPassword" name="confirmPassword" required>
-                        <label for="confirmPassword">Confirm Password</label>
-                        <i class="fa-regular fa-eye" id="eye3"></i>
-                    </div>
-                    <button type="submit" id="SignAccount">Sign Up</button>
                 </form>
+                
+                
             </div>
         </div>
     </div>

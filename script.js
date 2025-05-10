@@ -54,10 +54,11 @@
             }, 3000);
             
             if(event)event.preventDefault();
-            return;
+            return false;
             }
         } else {
             emailx.style.border = "2px solid green";
+            return true
         }
     }
     let passwordValidation = function (event = null ) {
@@ -79,13 +80,16 @@
                 errorMessage.remove();
             }, 3000);
             if(event)event.preventDefault();
-            return;
+            return false;
         }
         } else {
             password1.style.border = "2px solid green";
             password2.style.border = "2px solid green";
+            return true;
         }
     }
+
+
     /* event listeners  for validation while inputing*/
     /*  validation  for sign new account*/
     email.addEventListener("input", function () {
@@ -125,8 +129,24 @@
     /* submit button */
     /* submit button for sign new account */
     submit.addEventListener("click", function (event) {
-        emailvalidation(event);
-        passwordValidation(event);
+        event.preventDefault();
+        if(emailvalidation(event)&&passwordValidation(event)){
+            const successMessage = document.createElement("div");
+            successMessage.className = "success-message";
+            successMessage.textContent = "Account created successfully!";
+            document.getElementsByTagName("body")[0].appendChild(successMessage);
+            setTimeout(() => {
+                successMessage.remove();
+            }, 3000);
+
+            /* clear the input fields */
+            email.value = "";
+            password1.value = "";
+            password2.value = "";
+
+            return;
+        }
+
        
     });
     /* submit button for sign in account */
@@ -168,3 +188,91 @@
         layer2.classList.add("inactive");
         layer1.classList.remove("inactive");
     });
+
+    /**************************************/
+
+    let step1 = document.getElementById("step1");
+    let next = document.getElementById("nextStep"); 
+    let step2 = document.getElementById("step2");
+    let back = document.getElementById("prevStep");
+    let birthDate = document.getElementById("birthDate");
+
+    next.addEventListener("click", function(event){
+        if(!validateName(event))return;
+        let val = validationAge(); 
+        if(val == 1 ){
+            birthDate.style.border="2px solid green";
+            step1.classList.add("inactive");
+            step2.classList.remove("inactive");
+            if(!validateGender())return;
+            return ;
+        }
+        const errorMessage = document.createElement("div");
+        errorMessage.className = "error-message";
+        if(val == -1)
+        errorMessage.textContent = "birth date is not valid";
+        else 
+        errorMessage.textContent = "Your age is less than 14";
+        birthDate.parentNode.insertBefore(errorMessage, birthDate.nextElementSibling.nextSibling);
+        setTimeout(() => {
+            errorMessage.remove();
+        }, 3000);
+        birthDate.style.border="2px solid red";
+
+        event.preventDefault();
+            return;
+        
+    });
+    back.addEventListener("click", function(){
+        step2.classList.add("inactive");
+        step1.classList.remove("inactive");
+    });
+    
+    let validationAge = function (){
+        if(birthDate.value ==='')return -1;
+        let birth =new Date(birthDate.value);
+        let dateNow = new Date();
+        let year = dateNow.getFullYear() - birth.getFullYear()
+        let month = dateNow.getMonth() - birth.getMonth(); 
+        let day = dateNow.getDate() - birth.getDate();
+         if( day < 0  )month -- ; 
+         if(month < 0)year--; 
+         if(year < 14 || year > 120)return -2 ;
+         return 1;   
+    }
+    let fullName = document.getElementById("fullName");
+    let validateName = function(event = null){
+        let patternName = /^[A-Za-zأ-ي]{4,}\s[A-Za-zأ-ي]{4,}$/;
+        if(fullName.value===''||!patternName.test(fullName.value)){
+            if(event != null){
+            const errorMessage = document.createElement("div");
+            errorMessage.className = "error-message";
+            errorMessage.textContent = "entar valid first - second name";
+            fullName.parentNode.insertBefore(errorMessage, fullName.nextElementSibling.nextSibling);
+            setTimeout(() => {
+                errorMessage.remove();
+            }, 3000);
+        }
+            fullName.style.border="2px solid red";
+            return false;
+        }else{
+            fullName.style.border="2px solid green";
+            return true;
+        }
+    }
+    fullName.addEventListener("input",validateName.bind(null,null));
+    let gender = document.getElementsByName("gender");
+    let validateGender = function(){
+        for(let i = 0 ; i <gender.length ; i++ ){
+            if(gender[i].checked)return true;
+
+        }
+        for(let i = 0 ; i <gender.length ; i++ ){
+            gender[i].nextElementSibling.style.color="red";
+            setTimeout(() => {
+                gender[i].nextElementSibling.style.color="unset";
+            }, 3000);
+        }
+
+        return false;
+    }

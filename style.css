@@ -108,7 +108,10 @@ input::placeholder{
     position: relative;
     .input-group{
         position: relative;
-        margin-top: 20px;
+        margin-top: 30px;
+        &:has([type="radio"]){
+            margin-top: 0;
+        }
     }
     a{
         display: block;
@@ -118,7 +121,7 @@ input::placeholder{
         margin: 15px 50px 10px;
     }
 } 
-.input-group input{
+.input-group>input{
     width: 100%;
     padding: 10px;
     border: none;
@@ -128,11 +131,12 @@ input::placeholder{
     color: var(--black-color);
     outline: none;
     position: relative;
+    
 }
 .input-group input:focus{
     box-shadow: 0 0 5px 2px rgba(0, 114, 255, 0.5);   
 }
-.input-group label{
+.input-group>label{
     position: absolute;
     top: 50%;
     left: 10px;
@@ -148,11 +152,11 @@ input::placeholder{
          transition: all 0.3s ease;
 }
 
-.input-group input:focus + label,
-.input-group input:not(:placeholder-shown) + label{
+.input-group>input:focus + label,
+.input-group>input:not(:placeholder-shown) + label{
     top: -10px;
     left: 5px;
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: var(--white-color);
 }
 
@@ -302,6 +306,18 @@ get msg from validation in js
     border-style: solid;
     border-color: var(--black-color) transparent transparent transparent;
 }   
+
+.success-message{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: #f5f5f5f5;
+    background: #25d354;
+    padding: 5px;
+    border-radius: 6px;
+    font-size: 16px;
+    border: 2px solid green;
+}
 /* essential properties for animations*/
 .login.active{
     animation: fadeIn-left 0.7s ease-in-out forwards;
@@ -331,7 +347,6 @@ get msg from validation in js
     animation: fadeIn-left 0.7s ease-in-out forwards;
  }
  
-
 @keyframes fadeIn-left {
     0% {
         opacity: 0;
