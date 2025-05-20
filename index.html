@@ -29,7 +29,7 @@
                         <label for="UserName">Email</label>
                     </div>
                     <div class="input-group">
-                        <input type="password" class="see1"  minlength="8" maxlength="32" placeholder=" " id="Password" name="Password" required>
+                        <input type="password"   minlength="8" maxlength="32" placeholder=" " id="Password" name="Password" required>
                         <label for="Password">Password</label>
                         <i class="fa-regular fa-eye" id="eye1" ></i>
                     </div>
@@ -51,7 +51,6 @@
                 </div>
                 <p>or use your email for registeration</p>
                 <form>
-                    <!-- الخطوة 1: البيانات الشخصية -->
                     <div id="step1">
                         <div class="input-group">
                             <input type="text" placeholder=" " id="fullName" name="fullName" required>
@@ -67,31 +66,32 @@
                                 <label for="male">male</label>
                             </div>
                             <div class="choose2">
-                                <input type="radio" value="male" id="female" name="gender" required>
+                                <input type="radio" value="female" id="female" name="gender" required>
                                 <label for="female">female</label>
                             </div>
                         </div>
                         <button type="button" id="nextStep">Next</button>
                     </div>
                 
-                    <!-- الخطوة 2: بيانات الحساب -->
                     <div id="step2" class="inactive">
                         <div class="input-group">
                             <input type="email" placeholder=" " id="signUpEmail" name="signUpEmail" required>
                             <label for="signUpEmail">Email</label>
                         </div>
                         <div class="input-group">
-                            <input type="password" class="see2" minlength="8" maxlength="32" placeholder=" " id="signUpPassword" name="signUpPassword" required>
+                            <input type="password"  minlength="8" maxlength="32" placeholder=" " id="signUpPassword" name="signUpPassword" required>
                             <label for="signUpPassword">Password</label>
                             <i class="fa-regular fa-eye" id="eye2"></i>
                         </div>
                         <div class="input-group">
-                            <input type="password" class="see3" minlength="8" maxlength="32" placeholder=" " id="confirmPassword" name="confirmPassword" required>
+                            <input type="password"  minlength="8" maxlength="32" placeholder=" " id="confirmPassword" name="confirmPassword" required>
                             <label for="confirmPassword">Confirm Password</label>
                             <i class="fa-regular fa-eye" id="eye3"></i>
                         </div>
+                        <div class="btns">
                         <button type="button" id="prevStep">Back</button>
                         <button type="submit" id="SignAccount">Sign Up</button>
+                        </div>
                     </div>
                 </form>
                 

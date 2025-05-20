@@ -45,6 +45,7 @@
         if (emailx.value.trim() === "" || !emailPattern.test(emailx.value)) {
             emailx.style.border = "2px solid red";
             if(event){
+                
             const errorMessage = document.createElement("div");
             errorMessage.className = "error-message";
             errorMessage.textContent = "Please enter a valid email address.";
@@ -66,6 +67,7 @@
             password1.style.border = "2px solid red";
             password2.style.border = "2px solid red";
             if(event){
+                
             const errorMessage = document.createElement("div");
             errorMessage.className = "error-message";
             if(password1.value.length < 8) {
@@ -154,6 +156,7 @@
         emailvalidation(event , email2);
         if (password3.value.trim() === "" || password3.value.length < 8) {
             password3.style.border = "2px solid red";
+            
             const errorMessage = document.createElement("div");
             errorMessage.className = "error-message";
             errorMessage.textContent = "length must be at least 8 characters";
@@ -202,11 +205,13 @@
         let val = validationAge(); 
         if(val == 1 ){
             birthDate.style.border="2px solid green";
+            if(!validateGender()){return;}
             step1.classList.add("inactive");
             step2.classList.remove("inactive");
-            if(!validateGender())return;
             return ;
         }
+       
+            
         const errorMessage = document.createElement("div");
         errorMessage.className = "error-message";
         if(val == -1)
@@ -227,7 +232,6 @@
         step2.classList.add("inactive");
         step1.classList.remove("inactive");
     });
-    
     let validationAge = function (){
         if(birthDate.value ==='')return -1;
         let birth =new Date(birthDate.value);
@@ -245,6 +249,7 @@
         let patternName = /^[A-Za-zأ-ي]{4,}\s[A-Za-zأ-ي]{4,}$/;
         if(fullName.value===''||!patternName.test(fullName.value)){
             if(event != null){
+                
             const errorMessage = document.createElement("div");
             errorMessage.className = "error-message";
             errorMessage.textContent = "entar valid first - second name";

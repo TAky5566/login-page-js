@@ -7,7 +7,6 @@
     --secondary-color:#004E92;
     --second-backcolor:#1e6b83;
 }
-
 *{
     padding: 0;
     margin: 0;
@@ -25,7 +24,6 @@ body{
     font-size: 1.2rem;
     position: relative;
 }
-
 button{
     padding: 7px 40px;
     border: none;
@@ -42,6 +40,7 @@ h3{
     margin-bottom: 5px;
     color: var(--white-color);
 }
+
 input::placeholder{
     color: transparent;
 }
@@ -87,28 +86,14 @@ input::placeholder{
     }
 }
 
-.login{
-    -moz-animation: fadeout-left 0.7s ease-in-out forwards;
-      -o-animation: fadeout-left 0.7s ease-in-out forwards ;
-         animation: fadeout-left 0.7s ease-in-out forwards;
-    opacity: 1;
-    transform: translateX(0);
-} 
 
-.signup{
-    -moz-animation: fadeout-right 0.7s ease-in-out forwards;
-      -o-animation: fadeout-right 0.7s ease-in-out forwards;
-         animation: fadeout-right 0.7s ease-in-out forwards;
-    opacity: 1;
-    transform: translateX(0);
-}
 .container form{
     width: 100%;
     margin-bottom: 10px;
     position: relative;
     .input-group{
         position: relative;
-        margin-top: 30px;
+        margin-top: 25px;
         &:has([type="radio"]){
             margin-top: 0;
         }
@@ -125,18 +110,19 @@ input::placeholder{
     width: 100%;
     padding: 10px;
     border: none;
+    outline: none;
     border-radius: 5px;
     background-color: var(--white-color);
     font-size: 1rem;
     color: var(--black-color);
-    outline: none;
+    font-weight: bold;
     position: relative;
-    
+
 }
 .input-group input:focus{
     box-shadow: 0 0 5px 2px rgba(0, 114, 255, 0.5);   
 }
-.input-group>label{
+.input-group input:not([type="radio"])+label{
     position: absolute;
     top: 50%;
     left: 10px;
@@ -160,7 +146,8 @@ input::placeholder{
     color: var(--white-color);
 }
 
-.input-group:has(input[type="email"]):before{
+.input-group:has(input[type="email"]):before,
+.input-group:has(#fullName):before{
     content: '\f2bd';
     font-family: "Font Awesome 6 Free";
     font-weight: 900; 
@@ -194,16 +181,15 @@ input::placeholder{
          transform:  translateY(-50%);
 }
 
-button[type="submit"]{
+form>button[type="submit"]{
     display: block;
     margin: 25px auto 0;
     background-color: var(--white-color);
     color: var(--black-color);
- 
- }
- button[type="submit"]:hover{
+    &:hover{
      background-color: transparent;
      color: var(--white-color);
+    }
  }
 
  /* movinng layer */ 
@@ -235,6 +221,10 @@ button[type="submit"]{
     }
 } 
 
+.container .layer .layer-content{
+    text-align: center;
+    color:var(--white-color);    
+}
 
 .layer  p{
     font-size: 14px;
@@ -243,42 +233,43 @@ button[type="submit"]{
     margin: 20px 0;
 }
 
-.container .layer .layer-content{
-    text-align: center;
-    color:var(--white-color);    
-}
-
 .social-login{
-display: flex;
-justify-content: center;
-margin: 15px 0;
-gap:10px;
-    a{  
-        display: block;
-        text-decoration: none;
-        font-size: 1rem;
-        color: var(--white-color);
-        border: 1px solid var(--white-color);
-        border-radius: 7px;
-        -moz-transition:0.3s ease;
-          -o-transition:0.3s ease;
-             transition:0.3s ease;
-        
-        i{
-            width: 35px;
-            height: 35px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+    gap:10px;
+        a{  
+            display: block;
+            text-decoration: none;
+            font-size: 1rem;
             color: var(--white-color);
+            border: 1px solid var(--white-color);
+            border-radius: 7px;
+            -moz-transition:0.3s ease;
+            -o-transition:0.3s ease;
+                transition:0.3s ease;
+            
+            i{
+                width: 35px;
+                height: 35px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: var(--white-color);
 
+            }
+            &:hover {
+                background-color: var(--secondary-color);
+            }
         }
-        &:hover {
-            background-color: var(--secondary-color);
-        }
-    }
 }
 
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
 /*
 erroe message appear when try to submit invalid form 
 get msg from validation in js
@@ -319,7 +310,25 @@ get msg from validation in js
     border: 2px solid green;
 }
 /* essential properties for animations*/
-.login.active{
+
+@media (min-width:767px) {
+    .login{
+    -moz-animation: fadeout-left 0.7s ease-in-out forwards;
+      -o-animation: fadeout-left 0.7s ease-in-out forwards ;
+         animation: fadeout-left 0.7s ease-in-out forwards;
+    opacity: 1;
+    transform: translateX(0);
+} 
+
+.signup{
+    -moz-animation: fadeout-right 0.7s ease-in-out forwards;
+      -o-animation: fadeout-right 0.7s ease-in-out forwards;
+         animation: fadeout-right 0.7s ease-in-out forwards;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+    .login.active{
     animation: fadeIn-left 0.7s ease-in-out forwards;
     opacity: 0;
     transform: translateX(-50px);
@@ -334,10 +343,10 @@ get msg from validation in js
     right:0;
  }
  
- .container:has(.signup.active) .layer:last-child{
+.container:has(.signup.active) .layer:last-child{
     transform: translateX(-100%);
     border-radius: 0 100px 100px 0 ;
- }
+}
 
 .layer .layer-content:first-of-type{
     animation: fadeIn-right 0.7s ease-in-out forwards;
@@ -346,6 +355,7 @@ get msg from validation in js
  .layer .layer-content:last-of-type{
     animation: fadeIn-left 0.7s ease-in-out forwards;
  }
+}
  
 @keyframes fadeIn-left {
     0% {
@@ -389,3 +399,126 @@ get msg from validation in js
 }
 
 /******************************/
+
+
+@media (max-width:767px) {
+    body{
+        display: unset;
+    }
+    .container{
+            height: 100svh;
+    }
+    .form-container {
+        flex-direction: column;
+    }
+    .container .layer {
+            position: absolute;
+        width: 100%;
+        height: 30%;
+        right: 0;
+        border-radius: 100px 100px 0 0;
+        top: 70%;
+    }
+    .container>div:not(:has(.active)){
+
+    }
+    .login{
+        -moz-animation: fadeout-sm-left 0.7s ease-in-out forwards;
+        -o-animation: fadeout-sm-left 0.7s ease-in-out forwards ;
+            animation: fadeout-sm-left 0.7s ease-in-out forwards;
+        opacity: 1;
+        transform: translateY(0);
+    } 
+
+    .signup{
+        -moz-animation: fadeout-sm-right 0.7s ease-in-out forwards;
+        -o-animation: fadeout-sm-right 0.7s ease-in-out forwards;
+            animation: fadeout-sm-right 0.7s ease-in-out forwards;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .container .login-form, .container .signup-form {
+            padding: 20px 40px;
+            max-width: 100%;
+    }
+    .login.active{
+    animation: fadeIn-sm-left 0.7s ease-in-out forwards;
+    opacity: 0;
+    transform: translateY(-50px);
+    }
+    .signup.active{
+        animation: fadeIn-sm-right 0.7s ease-in-out forwards;
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+.container:has(.login.active) .layer:first-child{
+    height: 29%;
+ }
+ 
+.container:has(.signup.active) .layer:last-child{
+    top: 0;
+    border-radius: 0 0 100px 100px;
+}
+
+.layer .layer-content:first-of-type{
+    animation: fadeIn-sm-right 0.7s ease-in-out forwards;
+ }
+
+ .layer .layer-content:last-of-type{
+    animation: fadeIn-sm-left 0.7s ease-in-out forwards;
+ }
+ .container .layer{
+        align-items: baseline;
+    }
+}
+@keyframes fadeIn-sm-left {
+    0% {
+        opacity: 0;
+        height: 25%;
+        transform: translateY(-50%);
+    }
+    100% {
+        opacity: 1;
+        height: 75%;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeIn-sm-right {
+    0% {
+        opacity: 0;
+        height: 25%;
+        transform: translateY(50%);
+    }
+    100% {
+        opacity: 1;
+        height: 75%;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeout-sm-left {
+    0% {
+        opacity: 1;
+        height: 75%;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        height: 25%;
+        transform: translateY(-100%);
+    }
+}   
+@keyframes fadeout-sm-right {
+    0% {
+        opacity: 1;
+        height: 75%;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        height: 25%;
+        transform: translateY(100%);
+    }
+    
+    
+}
